@@ -27,30 +27,23 @@ public class Lambda {
     }
 
     public static int sumAll(List<Integer> numbers) {
-        int total = 0;
-        for (int number : numbers) {
-            total += number;
-        }
-        return total;
+        return numbers.stream().reduce(Integer::sum).get();
     }
 
+    public interface Conditional {
+        boolean test(Integer number);
+    }
+
+    public static int sumAll(List<Integer> numbers,
+                             Conditional c) {
+        // c.test(number)를 활용해 구현할 수 있다.
+        return numbers.stream().filter(c::test).reduce(Integer::sum).get();
+    }
     public static int sumAllEven(List<Integer> numbers) {
-        int total = 0;
-        for (int number : numbers) {
-            if (number % 2 == 0) {
-                total += number;
-            }
-        }
-        return total;
+        return sumAll(numbers, (integer)->{return integer%2==0;});
     }
 
     public static int sumAllOverThree(List<Integer> numbers) {
-        int total = 0;
-        for (int number : numbers) {
-            if (number > 3) {
-                total += number;
-            }
-        }
-        return total;
+        return sumAll(numbers, (integer)->{return integer>3;});
     }
 }
