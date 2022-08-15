@@ -39,6 +39,6 @@ public class StreamStudy {
     }
 
     public static long sumOverThreeAndDouble(List<Integer> numbers) {
-        return 0;
+        return Lambda.sumAllOverThree(numbers) * 2L;
     }
 }
