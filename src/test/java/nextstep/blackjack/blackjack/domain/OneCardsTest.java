@@ -1,9 +1,5 @@
 package nextstep.blackjack.blackjack.domain;
 
-import nextstep.blackjack.blackjack.domain.Card;
-import nextstep.blackjack.blackjack.domain.CardNumber;
-import nextstep.blackjack.blackjack.domain.CardType;
-import nextstep.blackjack.blackjack.domain.OneCards;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 class OneCardsTest {
-    private static final Card 첫_번째_카드 = new Card(CardType.CLOVER, CardNumber.ONE);
+    private static final Card 첫_번째_카드 = new Card(CardType.CLOVER, CardNumber.ACE);
     private static final Card 두_번째_카드 = new Card(CardType.CLOVER, CardNumber.TWO);
     private static final Card 세_번째_카드 = new Card(CardType.CLOVER, CardNumber.THREE);
     private static final Card 네_번쨰_카드 = new Card(CardType.CLOVER, CardNumber.FOUR);

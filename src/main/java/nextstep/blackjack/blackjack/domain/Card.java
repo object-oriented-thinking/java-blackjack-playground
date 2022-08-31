@@ -11,6 +11,10 @@ public class Card {
         this.cardNumber = cardNumber;
     }
 
+    public CardNumber getCardNumber() {
+        return cardNumber;
+    }
+
     public String name() {
         return cardNumber.getNumber() + cardType.getType();
     }
