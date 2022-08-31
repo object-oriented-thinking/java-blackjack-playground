@@ -1,7 +1,5 @@
 package nextstep.optional;
 
-import java.util.Optional;
-
 public class User {
     private String name;
     private Integer age;
@@ -56,16 +54,13 @@ public class User {
         if (getClass() != obj.getClass())
             return false;
         User other = (User) obj;
+
         if (age == null) {
-            if (other.age != null)
-                return false;
+            return other.age == null;
         } else if (!age.equals(other.age))
             return false;
         if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        return true;
+            return other.name == null;
+        } else return name.equals(other.name);
     }
 }
