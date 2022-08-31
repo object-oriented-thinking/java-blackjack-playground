@@ -22,12 +22,16 @@ public enum CardNumber {
         this.score = score;
     }
 
-    String getNumber() {
+    String number() {
         return cardNumber;
     }
 
     int score() {
         return score;
+    }
+
+    boolean isAce() {
+        return this.equals(CardNumber.ACE);
     }
 
     @Override

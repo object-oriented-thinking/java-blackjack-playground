@@ -16,12 +16,12 @@ public class Card {
     }
 
     public String name() {
-        return cardNumber.getNumber() + cardType.getType();
+        return cardNumber.number() + cardType.getType();
     }
 
     @Override
     public String toString() {
-        return cardNumber.getNumber() + cardType.getType();
+        return cardNumber.number() + cardType.getType();
     }
 
     @Override
