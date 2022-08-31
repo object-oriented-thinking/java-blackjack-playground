@@ -36,8 +36,8 @@ public class Lambda {
             .reduce(Integer::sum).orElse(0);
     }
 
-    private static void print(String Hello_from_thread) {
-        System.out.println(Hello_from_thread);
+    private static void print(String message) {
+        System.out.println(message);
     }
 
     private static boolean getAll(Integer integer) {
