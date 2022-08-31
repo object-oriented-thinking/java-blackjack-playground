@@ -1,4 +1,4 @@
-package nextstep.blackjack.domain;
+package nextstep.blackjack.blackjack.domain;
 
 public enum CardType {
     HEART("하트"),
@@ -13,6 +13,11 @@ public enum CardType {
     }
 
     String getType() {
+        return cardType;
+    }
+
+    @Override
+    public String toString() {
         return cardType;
     }
 }

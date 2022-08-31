@@ -1,8 +1,8 @@
-package nextstep.blackjack.domain;
+package nextstep.blackjack.blackjack.domain;
 
-import nextstep.blackjack.domain.Card;
-import nextstep.blackjack.domain.CardNumber;
-import nextstep.blackjack.domain.CardType;
+import nextstep.blackjack.blackjack.domain.Card;
+import nextstep.blackjack.blackjack.domain.CardNumber;
+import nextstep.blackjack.blackjack.domain.CardType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

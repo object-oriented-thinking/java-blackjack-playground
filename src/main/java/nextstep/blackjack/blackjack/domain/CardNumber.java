@@ -1,4 +1,4 @@
-package nextstep.blackjack.domain;
+package nextstep.blackjack.blackjack.domain;
 
 public enum CardNumber {
     ONE("A"),
@@ -8,8 +8,9 @@ public enum CardNumber {
     FIVE("5"),
     SIX("6"),
     SEVEN("7"),
-    NINE("8"),
-    TEN("9"),
+    EIGHT("8"),
+    NINE("9"),
+    TEN("10"),
     KING("K"),
     QUEEN("Q"),
     JACK("J");
@@ -21,5 +22,10 @@ public enum CardNumber {
 
     String getNumber() {
         return cardNumber;
+    }
+
+    @Override
+    public String toString() {
+        return  cardNumber;
     }
 }
