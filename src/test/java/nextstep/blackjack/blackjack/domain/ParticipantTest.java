@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-class ParticipantsTest {
+class ParticipantTest {
     private static final String USERNAME = "tis";
     private static final BigDecimal BETTING_MONEY = BigDecimal.valueOf(1000L);
     private static final Card one = new Card(CardType.CLOVER, CardNumber.FOUR);
