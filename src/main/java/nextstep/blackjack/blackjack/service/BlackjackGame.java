@@ -1,13 +1,15 @@
-package nextstep.blackjack.blackjack;
+package nextstep.blackjack.blackjack.service;
 
 import nextstep.blackjack.blackjack.member.Dealer;
 import nextstep.blackjack.blackjack.member.Participant;
 import nextstep.blackjack.blackjack.member.Participants;
+import nextstep.blackjack.blackjack.onecards.Cards;
 import nextstep.blackjack.blackjack.onecards.OneCards;
 import nextstep.blackjack.blackjack.onecards.OneCardsGenerator;
 import nextstep.blackjack.blackjack.utils.IOService;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -42,14 +44,25 @@ public class BlackjackGame {
     }
 
     private void getResult(Dealer dealer, Participants participants) {
+        Map<String, Integer> map = new HashMap<>();
+        participants.getParticipants().forEach(participant ->
+            map.put(participant.getUsername(), participant.getCards().sumAll())
+        );
+
+        map.put("dealer", dealer.getCards().sumAll());
+
+        BigDecimal money = participants.sumBattingMoney();
+
+        ioService.outputResult(map, money);
     }
 
     private void weatherToAcceptCard(Participants participants, OneCards oneCards) {
         participants.getParticipants().stream()
             .filter(participant -> participant.getCards().isOver21())
             .forEach(participant -> {
-                while (ioService.weatherToAcceptCard(participant.getUsername()) && participant.getCards().isOver21()) {
-                    participant.getCards().putCard(oneCards.pollCard());
+                while (participant.getCards().isOver21() && ioService.weatherToAcceptCard(participant.getUsername(), participant.getCards().sumAll())) {
+                    Cards cards = participant.getCards().putCard(oneCards.pollCard());
+                    participant.updateCards(cards);
                 }
             });
     }

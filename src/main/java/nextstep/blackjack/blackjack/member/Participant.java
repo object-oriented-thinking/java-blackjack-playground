@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Participant {
     private final String username;
     private final BigDecimal bettingMoney;
-    private final Cards cards;
+    private Cards cards;
 
     public Participant(String username, BigDecimal bettingMoney, Cards cards) {
         if (username == null || username.trim().isEmpty()) {
@@ -38,5 +38,9 @@ public class Participant {
 
     public Cards getCards() {
         return cards;
+    }
+
+    public void updateCards(Cards cards) {
+        this.cards = cards;
     }
 }

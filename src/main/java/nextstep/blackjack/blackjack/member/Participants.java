@@ -2,6 +2,7 @@ package nextstep.blackjack.blackjack.member;
 
 import nextstep.blackjack.blackjack.onecards.OneCards;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +20,12 @@ public class Participants {
 
     public void distribute(OneCards oneCards) {
         participants.forEach(participant -> participant.getCards().putCard(oneCards.pollCard()));
+    }
+
+    public BigDecimal sumBattingMoney() {
+        return getParticipants().stream()
+            .map(Participant::getBettingMoney)
+            .reduce(BigDecimal::add)
+            .orElse(BigDecimal.ZERO);
     }
 }
