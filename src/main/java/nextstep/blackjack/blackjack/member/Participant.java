@@ -1,4 +1,4 @@
-package nextstep.blackjack.blackjack.domain;
+package nextstep.blackjack.blackjack.member;
 
 import nextstep.blackjack.blackjack.onecards.Cards;
 
