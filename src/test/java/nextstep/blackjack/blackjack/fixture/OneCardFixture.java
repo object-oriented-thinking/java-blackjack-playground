@@ -3,10 +3,8 @@ package nextstep.blackjack.blackjack.fixture;
 import nextstep.blackjack.blackjack.domain.Card;
 import nextstep.blackjack.blackjack.domain.CardNumber;
 import nextstep.blackjack.blackjack.domain.CardType;
-import nextstep.blackjack.blackjack.domain.OneCards;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 public class OneCardFixture {
@@ -16,6 +14,10 @@ public class OneCardFixture {
     public static final Card 네_번쨰_카드 = new Card(CardType.CLOVER, CardNumber.FOUR);
     private static final Card 다섯_번째_카드 = new Card(CardType.CLOVER, CardNumber.JACK);
     private static final Card 여섯_번째_카드 = new Card(CardType.HEART, CardNumber.JACK);
-    public static final List<Card> CARD_LIST = Arrays.asList(첫_번째_카드, 두_번째_카드, 세_번째_카드, 네_번쨰_카드, 다섯_번째_카드, 여섯_번째_카드);
+    private static final Card 일곱_번째_카드 = new Card(CardType.HEART, CardNumber.ACE);
+    private static final Card 여덟_번째_카드 = new Card(CardType.DIAMOND, CardNumber.ACE);
+    private static final Card 아홉_번째_카드 = new Card(CardType.SPADE, CardNumber.ACE);
+    public static final List<Card> CARD_LIST = Arrays.asList(첫_번째_카드, 두_번째_카드, 세_번째_카드, 네_번쨰_카드, 다섯_번째_카드,
+        여섯_번째_카드, 일곱_번째_카드, 여덟_번째_카드, 아홉_번째_카드);
 
 }
