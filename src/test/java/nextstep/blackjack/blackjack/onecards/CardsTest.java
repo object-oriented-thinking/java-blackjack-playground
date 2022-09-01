@@ -1,5 +1,9 @@
-package nextstep.blackjack.blackjack.domain;
+package nextstep.blackjack.blackjack.onecards;
 
+import nextstep.blackjack.blackjack.onecards.Card;
+import nextstep.blackjack.blackjack.onecards.CardNumber;
+import nextstep.blackjack.blackjack.onecards.CardType;
+import nextstep.blackjack.blackjack.onecards.Cards;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -54,5 +58,9 @@ class CardsTest {
         assertThat(newCards.sumAll()).isEqualTo(12);
     }
 
+    @Test
+    @DisplayName("합이 21이 넘으면 더 이상 받을 수 없다.")
+    void cards_putCard_notSumAllOver21() {
 
+    }
 }

@@ -1,4 +1,4 @@
-package nextstep.blackjack.blackjack.domain;
+package nextstep.blackjack.blackjack.onecards;
 
 public enum CardType {
     HEART("하트"),

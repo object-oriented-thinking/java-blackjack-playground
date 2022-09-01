@@ -1,4 +1,4 @@
-package nextstep.blackjack.blackjack.domain;
+package nextstep.blackjack.blackjack.onecards;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

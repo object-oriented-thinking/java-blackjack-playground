@@ -1,4 +1,4 @@
-package nextstep.blackjack.blackjack.domain;
+package nextstep.blackjack.blackjack.onecards;
 
 public enum CardNumber {
     ACE("A", 1),

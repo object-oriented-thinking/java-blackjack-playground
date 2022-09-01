@@ -1,5 +1,6 @@
 package nextstep.blackjack.blackjack.domain;
 
+import nextstep.blackjack.blackjack.onecards.OneCards;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

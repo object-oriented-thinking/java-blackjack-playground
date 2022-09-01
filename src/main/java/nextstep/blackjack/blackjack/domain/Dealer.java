@@ -1,5 +1,8 @@
 package nextstep.blackjack.blackjack.domain;
 
+import nextstep.blackjack.blackjack.onecards.Cards;
+import nextstep.blackjack.blackjack.onecards.OneCards;
+
 public class Dealer {
     private static final int CRITERION = 16;
     private final Cards cards;

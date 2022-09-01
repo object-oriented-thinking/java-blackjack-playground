@@ -1,6 +1,5 @@
-package nextstep.blackjack.blackjack.utils;
+package nextstep.blackjack.blackjack.onecards;
 
-import nextstep.blackjack.blackjack.domain.OneCards;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

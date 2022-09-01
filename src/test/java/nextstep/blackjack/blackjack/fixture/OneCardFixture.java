@@ -1,8 +1,8 @@
 package nextstep.blackjack.blackjack.fixture;
 
-import nextstep.blackjack.blackjack.domain.Card;
-import nextstep.blackjack.blackjack.domain.CardNumber;
-import nextstep.blackjack.blackjack.domain.CardType;
+import nextstep.blackjack.blackjack.onecards.Card;
+import nextstep.blackjack.blackjack.onecards.CardNumber;
+import nextstep.blackjack.blackjack.onecards.CardType;
 
 import java.util.Arrays;
 import java.util.List;
