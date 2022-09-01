@@ -1,6 +1,7 @@
 package nextstep.blackjack.blackjack.member;
 
 import nextstep.blackjack.blackjack.onecards.Cards;
+import nextstep.blackjack.blackjack.onecards.OneCards;
 
 import java.math.BigDecimal;
 
@@ -21,6 +22,10 @@ public class Participant {
         this.username = username;
         this.bettingMoney = bettingMoney;
         this.cards = cards;
+    }
+
+    public Participant(String username, BigDecimal bettingMoney, OneCards oneCards) {
+        this(username, bettingMoney, new Cards(oneCards));
     }
 
     public String getUsername() {

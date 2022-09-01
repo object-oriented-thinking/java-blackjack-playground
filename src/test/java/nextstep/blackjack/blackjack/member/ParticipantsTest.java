@@ -24,18 +24,14 @@ class ParticipantsTest {
         카드덱 = new OneCards(new LinkedList<>(CARD_LIST));
     }
 
-    private Cards getCards() {
-        return new Cards(카드덱.pollCard(), 카드덱.pollCard());
-    }
-
     @Test
     @DisplayName("게임에 참여자들이 입장한다.")
     void participants_create() {
         Assertions.assertDoesNotThrow(
             () -> new Participants(Arrays.asList(
-                new Participant("tis", BigDecimal.TEN, getCards()),
-                new Participant("me", BigDecimal.valueOf(20_000), getCards()),
-                new Participant("yolo", BigDecimal.valueOf(30_000_000), getCards())
+                new Participant("tis", BigDecimal.TEN, 카드덱),
+                new Participant("me", BigDecimal.valueOf(20_000), 카드덱),
+                new Participant("yolo", BigDecimal.valueOf(30_000_000), 카드덱)
             )
             )
         );
@@ -48,9 +44,9 @@ class ParticipantsTest {
         int size = 카드덱.getCardList().size();
 
         Participants participants = new Participants(Arrays.asList(
-            new Participant("tis", BigDecimal.TEN, getCards()),
-            new Participant("me", BigDecimal.valueOf(20_000), getCards()),
-            new Participant("yolo", BigDecimal.valueOf(30_000_000), getCards())
+            new Participant("tis", BigDecimal.TEN, 카드덱),
+            new Participant("me", BigDecimal.valueOf(20_000), 카드덱),
+            new Participant("yolo", BigDecimal.valueOf(30_000_000), 카드덱)
         ));
 
         // when

@@ -3,10 +3,9 @@ package nextstep.blackjack.blackjack;
 import nextstep.blackjack.blackjack.member.Dealer;
 import nextstep.blackjack.blackjack.member.Participant;
 import nextstep.blackjack.blackjack.member.Participants;
-import nextstep.blackjack.blackjack.onecards.Cards;
 import nextstep.blackjack.blackjack.onecards.OneCards;
-import nextstep.blackjack.blackjack.utils.IOService;
 import nextstep.blackjack.blackjack.onecards.OneCardsGenerator;
+import nextstep.blackjack.blackjack.utils.IOService;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -47,16 +46,16 @@ public class BlackjackGame {
 
     private void weatherToAcceptCard(Participants participants, OneCards oneCards) {
         participants.getParticipants().stream()
-            .filter(participant -> participant.getCards().sumAll() < 21)
+            .filter(participant -> participant.getCards().isOver21())
             .forEach(participant -> {
-                while (ioService.weatherToAcceptCard(participant.getUsername())) {
+                while (ioService.weatherToAcceptCard(participant.getUsername()) && participant.getCards().isOver21()) {
                     participant.getCards().putCard(oneCards.pollCard());
                 }
             });
     }
 
     private Participant getParticipant(OneCards oneCards, String username, BigDecimal battingMoney) {
-        return new Participant(username, battingMoney, new Cards(oneCards.pollCard(), oneCards.pollCard()));
+        return new Participant(username, battingMoney, oneCards);
     }
 
 }

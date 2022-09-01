@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -20,7 +21,7 @@ class ParticipantTest {
     private static final BigDecimal BETTING_MONEY = BigDecimal.valueOf(1000L);
     private static final Card one = new Card(CardType.CLOVER, CardNumber.FOUR);
     private static final Card two = new Card(CardType.CLOVER, CardNumber.JACK);
-    private static final Cards CARDS = new Cards(one, two);
+    private static final Cards CARDS = new Cards(Arrays.asList(one, two));
 
     @Test
     @DisplayName("참여자는 이름과 배팀 금액, 카드 패를 가집니다.")

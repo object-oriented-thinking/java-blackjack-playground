@@ -8,12 +8,12 @@ import java.util.Optional;
 public class Cards {
     private final List<Card> cards;
 
-    public Cards(final Card one, final Card two) {
-        this.cards = Arrays.asList(getCard(one), getCard(two));
+    public Cards(final List<Card> cards) {
+        this.cards = cards;
     }
 
-    private Cards(final List<Card> cards) {
-        this.cards = cards;
+    public Cards(OneCards oneCards) {
+        this(Arrays.asList(oneCards.pollCard(), oneCards.pollCard()));
     }
 
     private List<Card> getCards() {
@@ -44,5 +44,9 @@ public class Cards {
     private Card getCard(Card card) {
         return Optional.ofNullable(card)
             .orElseThrow(() -> new IllegalArgumentException("Card는 Null일 수 없습니다."));
+    }
+
+    public boolean isOver21() {
+        return sumAll() < 21;
     }
 }
