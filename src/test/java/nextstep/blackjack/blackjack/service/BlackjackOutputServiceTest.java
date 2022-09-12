@@ -7,7 +7,6 @@ import nextstep.blackjack.blackjack.onecards.Card;
 import nextstep.blackjack.blackjack.onecards.CardNumber;
 import nextstep.blackjack.blackjack.onecards.CardType;
 import nextstep.blackjack.blackjack.onecards.Cards;
-import nextstep.blackjack.blackjack.utils.IOService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,7 +34,7 @@ class BlackjackOutputServiceTest {
 
     @BeforeEach
     void setUp() {
-        outputService = new BlackjackOutputService(new IOService());
+        outputService = new BlackjackOutputService();
     }
 
     @Test

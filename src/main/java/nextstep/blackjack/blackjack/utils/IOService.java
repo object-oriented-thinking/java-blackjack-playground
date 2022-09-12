@@ -38,6 +38,12 @@ public class IOService {
         return Objects.equals(scanner.next(), "y");
     }
 
+    public void outputScores(Map<String, Integer> scores) {
+        for (Map.Entry<String, Integer> entry : scores.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue() + "점");
+        }
+    }
+
     public void outputResult(Map<String, BigDecimal> result) {
         for (Map.Entry<String, BigDecimal> entry : result.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue() + "원");

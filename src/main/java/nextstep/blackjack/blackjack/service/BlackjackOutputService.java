@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 
 public class BlackjackOutputService {
 
+    public static final String DEALER = "dealer";
+
     /**
      * 참여자들을 입력 받아 결과를 반환한다.*
      *
@@ -26,8 +28,8 @@ public class BlackjackOutputService {
             .filter(participant -> participant.getCards().is21())
             .collect(Collectors.toList());
 
-
         int maxParticipant = participants.getParticipants().stream()
+            .filter(participant -> participant.getCards().sumAll() <= 21)
             .max(Comparator.comparingLong(value -> value.getCards().sumAll()))
             .map(participant -> participant.getCards().sumAll())
             .orElse(0);
@@ -42,7 +44,7 @@ public class BlackjackOutputService {
                 .orElse(BigDecimal.ZERO)
                 .negate();
 
-            members.put("dealer", dealerProfit);
+            members.put(DEALER, dealerProfit);
             return members;
         }
 
@@ -59,7 +61,7 @@ public class BlackjackOutputService {
             looser.forEach(participant -> members.put(participant.getUsername(), participant.getBettingMoney().negate()));
 
             BigDecimal dealerProfit = members.values().stream().reduce(BigDecimal::add).orElse(BigDecimal.ZERO).negate();
-            members.put("dealer", dealerProfit);
+            members.put(DEALER, dealerProfit);
             return members;
         }
 
@@ -67,11 +69,6 @@ public class BlackjackOutputService {
             participants_cards_21.forEach(participant ->
                 members.put(participant.getUsername(), participant.getBettingMoney())
             );
-
-            BigDecimal winnersMoney = participants_cards_21.stream()
-                .map(Participant::getBettingMoney)
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
 
             List<Participant> participants_cards_not_21 = participants.getParticipants().stream()
                 .filter(participant -> !participant.getCards().is21())
@@ -82,7 +79,7 @@ public class BlackjackOutputService {
             );
 
             BigDecimal dealerProfit = members.values().stream().reduce(BigDecimal::add).orElse(BigDecimal.ZERO).negate();
-            members.put("dealer", dealerProfit);
+            members.put(DEALER, dealerProfit);
 
             return members;
         }
@@ -92,7 +89,7 @@ public class BlackjackOutputService {
                 .forEach(participant -> members.put(participant.getUsername(), participant.getBettingMoney().negate()));
 
             BigDecimal dealerProfit = members.values().stream().reduce(BigDecimal::add).orElse(BigDecimal.ZERO).negate();
-            members.put("dealer", dealerProfit);
+            members.put(DEALER, dealerProfit);
             return members;
         }
 
@@ -110,11 +107,19 @@ public class BlackjackOutputService {
             looser.forEach(participant -> members.put(participant.getUsername(), participant.getBettingMoney().negate()));
 
             BigDecimal dealerProfit = members.values().stream().reduce(BigDecimal::add).orElse(BigDecimal.ZERO).negate();
-            members.put("dealer", dealerProfit);
+            members.put(DEALER, dealerProfit);
 
 
             return members;
         }
         return new HashMap<>();
+    }
+
+    public Map<String, Integer> getResult(Participants participants, Dealer dealer) {
+        Map<String, Integer> scores = new HashMap<>();
+        participants.getParticipants().forEach(participant -> scores.put(participant.getUsername(), participant.getCards().sumAll()));
+        scores.put(DEALER, dealer.getCards().sumAll());
+
+        return scores;
     }
 }

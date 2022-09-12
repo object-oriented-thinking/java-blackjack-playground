@@ -12,14 +12,17 @@ import java.util.Map;
 public class Main {
     private final static IOService ioService = new IOService();
     private final static BlackjackGameService blackjackGame = new BlackjackGameService(ioService);
-    private final static BlackjackOutputService blackjackResult = new BlackjackOutputService(ioService);
+    private final static BlackjackOutputService blackjackResult = new BlackjackOutputService();
 
     public static void main(String[] args) {
         Dealer dealer = blackjackGame.enterDealer();
         Participants participants = blackjackGame.enter();
         blackjackGame.weatherToAcceptCard(participants);
-        Map<String, BigDecimal> result = blackjackResult.distributeMoney(participants, dealer);
-        ioService.outputResult(result);
 
+        Map<String, Integer> scores = blackjackResult.getResult(participants, dealer);
+        Map<String, BigDecimal> result = blackjackResult.distributeMoney(participants, dealer);
+
+        ioService.outputScores(scores);
+        ioService.outputResult(result);
     }
 }
