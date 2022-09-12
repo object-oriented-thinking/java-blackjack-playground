@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class Cards {
+    private static final int DEFAULT_SIZE = 2;
+    private static final int MAX_SCORE = 21;
     private final List<Card> cards;
 
     public Cards(final List<Card> cards) {
@@ -46,15 +48,19 @@ public class Cards {
             .orElseThrow(() -> new IllegalArgumentException("Card는 Null일 수 없습니다."));
     }
 
+    public boolean isCountTwo() {
+        return cards.size() == DEFAULT_SIZE;
+    }
+
     public boolean isOver21() {
-        return sumAll() > 21;
+        return sumAll() > MAX_SCORE;
     }
 
     public boolean isNotOver21() {
-        return sumAll() < 21;
+        return sumAll() < MAX_SCORE;
     }
 
     public boolean is21() {
-        return sumAll() == 21;
+        return sumAll() == MAX_SCORE;
     }
 }

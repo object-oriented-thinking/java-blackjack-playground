@@ -9,6 +9,10 @@ public class Dealer {
     private static final int CRITERION = 16;
     private final Cards cards;
 
+    public Dealer(Cards cards) {
+        this.cards = cards;
+    }
+
     /**
      * 딜러는 카드값이 CRITERION을 넘지 않으면 카드를 한 장 더 뽑는다.*
      * @param oneCards
