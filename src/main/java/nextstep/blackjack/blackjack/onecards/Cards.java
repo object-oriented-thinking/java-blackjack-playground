@@ -47,6 +47,14 @@ public class Cards {
     }
 
     public boolean isOver21() {
+        return sumAll() > 21;
+    }
+
+    public boolean isNotOver21() {
         return sumAll() < 21;
+    }
+
+    public boolean is21() {
+        return sumAll() == 21;
     }
 }
