@@ -38,11 +38,9 @@ public class IOService {
         return Objects.equals(scanner.next(), "y");
     }
 
-    public void outputResult(Map<String, Integer> map, BigDecimal money) {
-        System.out.println("결과 발표한다.");
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+    public void outputResult(Map<String, BigDecimal> result) {
+        for (Map.Entry<String, BigDecimal> entry : result.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue() + "원");
         }
-        System.out.println("총 상금은 " + money.toString());
     }
 }

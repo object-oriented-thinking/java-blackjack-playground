@@ -6,6 +6,9 @@ import nextstep.blackjack.blackjack.service.BlackjackGameService;
 import nextstep.blackjack.blackjack.service.BlackjackOutputService;
 import nextstep.blackjack.blackjack.utils.IOService;
 
+import java.math.BigDecimal;
+import java.util.Map;
+
 public class Main {
     private final static IOService ioService = new IOService();
     private final static BlackjackGameService blackjackGame = new BlackjackGameService(ioService);
@@ -15,6 +18,8 @@ public class Main {
         Dealer dealer = blackjackGame.enterDealer();
         Participants participants = blackjackGame.enter();
         blackjackGame.weatherToAcceptCard(participants);
-        blackjackResult.distributeMoney(participants, dealer);
+        Map<String, BigDecimal> result = blackjackResult.distributeMoney(participants, dealer);
+        ioService.outputResult(result);
+
     }
 }
