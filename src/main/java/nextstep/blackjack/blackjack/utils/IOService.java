@@ -35,7 +35,7 @@ public class IOService {
 
     public boolean weatherToAcceptCard(String username, int score) {
         System.out.println(username + "씨는 카드를 받을건지? (y/n), score : " + score);
-        return Objects.equals(scanner.nextLine(), "y");
+        return Objects.equals(scanner.next(), "y");
     }
 
     public void outputResult(Map<String, Integer> map, BigDecimal money) {
