@@ -12,11 +12,11 @@ import java.math.BigDecimal;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class BlackjackInputService {
+public class BlackjackGameService {
     private final static OneCards oneCards = OneCardsGenerator.generateOneCards();
     private final IOService ioService;
 
-    public BlackjackInputService(IOService ioService) {
+    public BlackjackGameService(IOService ioService) {
         this.ioService = ioService;
     }
 
